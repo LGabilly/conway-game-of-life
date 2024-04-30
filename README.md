@@ -38,4 +38,4 @@ python -m src.main --gen 50 --scale 20 --pop 0.5
 
 ## Exemple
 
-![Jeu de la Vie de Conway](exemple.gif)
+![Jeu de la Vie de Conway](asset/img/life-game.gif)
