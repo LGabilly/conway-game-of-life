@@ -45,7 +45,7 @@ class LifeGrid(BaseModel):
         )
 
     def display_ascii(self):
-        ALIVE = "💚"
+        ALIVE = "✖"
         DEAD = " "
 
         display = []

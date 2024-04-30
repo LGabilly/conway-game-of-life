@@ -10,7 +10,7 @@ from models.Pattern import Pattern
 class CursesView(BaseModel):
     pattern: Pattern
     gen: int = 10
-    frame_rate: int = 4
+    frame_rate: int = 6
     bbox: tuple = (0, 0, 10, 10)
 
     def show(self):
