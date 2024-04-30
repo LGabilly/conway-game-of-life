@@ -1,13 +1,34 @@
 import random
 
+import click
+
 from models.CursesView import CursesView
 from models.Pattern import Pattern
 
 # blinker = Pattern(name="Blinker", alive_cells={(2, 1), (2, 2), (2, 3)})
 
-random_pattern = Pattern(
-    name="Random",
-    alive_cells={(x, y) for x in range(10) for y in range(10) if random.random() > 0.3},
-)
 
-CursesView(pattern=random_pattern, gen=100, bbox=(-20, -20, 20, 20)).show()
+@click.command()
+@click.option("--gen", default=100, show_default=True)
+@click.option("--scale", default=10, show_default=True)
+@click.option("--pop", default=0.3, show_default=True)
+def main(gen: int, scale: int, pop: float):
+    random_pattern = Pattern(
+        name="Random",
+        alive_cells={
+            (x, y)
+            for x in range(-scale // 2, scale // 2)
+            for y in range(-scale // 2, scale // 2)
+            if random.random() < pop
+        },
+    )
+
+    CursesView(
+        pattern=random_pattern,
+        gen=gen,
+        bbox=(-(1.1 * scale), -(1.1 * scale), 1.1 * scale, 1.1 * scale),
+    ).show()
+
+
+if __name__ == "__main__":
+    main()
