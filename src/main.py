@@ -1,6 +1,13 @@
+import random
+
 from models.CursesView import CursesView
 from models.Pattern import Pattern
 
-blinker = Pattern(name="Blinker", alive_cells={(2, 1), (2, 2), (2, 3)})
+# blinker = Pattern(name="Blinker", alive_cells={(2, 1), (2, 2), (2, 3)})
 
-CursesView(pattern=blinker, gen=100, bbox=(0, 0, 10, 10)).show()
+random_pattern = Pattern(
+    name="Random",
+    alive_cells={(x, y) for x in range(10) for y in range(10) if random.random() > 0.3},
+)
+
+CursesView(pattern=random_pattern, gen=100, bbox=(-20, -20, 20, 20)).show()
