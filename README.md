@@ -30,12 +30,15 @@ Vous pouvez exécuter la simulation avec les paramètres par défaut ou spécifi
 
 ```bash
 python -m src.main --gen 50 --scale 20 --pop 0.5
+python -m src.main --pattern_name glider_gun
 ```
 
 - `gen`: Le nombre de générations à simuler.
 - `scale`: Le facteur d'échelle pour le motif.
 - `pop`: La probabilité qu'une cellule soit vivante dans le motif aléatoire.
+- `pattern_name`: Le nom d'un pattern connu
 
 ## Exemple
 
+Voici un exemple réprésentant "Le canon à planeurs de Gosper" qui génère périodiquement des "planeurs" se déplacement en diagonale à l'infini.
 ![Jeu de la Vie de Conway](asset/img/life-game.gif)
